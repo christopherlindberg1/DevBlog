@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Data
 {
+    /// <summary>
+    /// Class providing methods that the client can use for data access.
+    /// </summary>
     public class BlogPostData : IBlogPostData
     {
         private readonly IDataAccess _dataAccess;
@@ -19,9 +22,13 @@ namespace DataAccess.Data
             _connectionStringData = connectionStringData;
         }
 
-        public async Task<List<BlogModel>> GetAllBlogPosts()
+        /// <summary>
+        /// Gets all blog posts
+        /// </summary>
+        /// <returns>List containing all blog posts</returns>
+        public async Task<List<BlogPostModel>> GetAllBlogPosts()
         {
-            return await _dataAccess.LoadData<BlogModel, dynamic>(
+            return await _dataAccess.LoadData<BlogPostModel, dynamic>(
                 "dbo.spBlogPost_GetAll",
                 new { },
                 _connectionStringData.SqlConnectionName);
