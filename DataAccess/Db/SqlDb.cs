@@ -10,6 +10,9 @@ using System.Data;
 
 namespace DataAccess.Db
 {
+    /// <summary>
+    /// Class providing utility methods for accessing an SQL database.
+    /// </summary>
     public class SqlDb : IDataAccess
     {
         private readonly IConfiguration _config;
@@ -46,6 +49,14 @@ namespace DataAccess.Db
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="storedProcedure"></param>
+        /// <param name="parameters"></param>
+        /// <param name="connectionStringName"></param>
+        /// <returns></returns>
         public async Task<int> SaveData<T>(string storedProcedure, T parameters, string connectionStringName)
         {
             string connectionString = _config.GetConnectionString(connectionStringName);
