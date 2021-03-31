@@ -15,7 +15,7 @@ namespace BlogRazorPages.Pages
         private readonly ILogger<IndexModel> _logger;
         private readonly IBlogPostData _blogPostData;
 
-        public List<BlogModel> BlogPosts { get; set; }
+        public List<BlogPostModel> BlogPosts { get; set; }
         public int NrOfBlogPosts { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger, IBlogPostData blogPostData)
@@ -27,8 +27,6 @@ namespace BlogRazorPages.Pages
         public async Task<IActionResult> OnGet()
         {
             BlogPosts = await _blogPostData.GetAllBlogPosts();
-
-            NrOfBlogPosts = BlogPosts.Count;
 
             return Page();
         }

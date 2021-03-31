@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<section>
+    <h1 class="display-4 text-center">Welcome</h1>
+    <p class="text-center lead">This is the place were you as a developer get to share your knowledge by writing blow posts,
+    as well as learning from other developers.</p>
+
+    <h2>Recent posts</h2>
+    <div>
+        Blog posts...
+    </div>
+    <a asp-page="/BlogPosts/Index">See all posts.</a>
+</section>
