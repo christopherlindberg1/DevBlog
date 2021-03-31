@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Data
 {
+    /// <summary>
+    /// Interface for what methods should be available to the client.
+    /// </summary>
     public interface IBlogPostData
     {
-        Task<List<BlogModel>> GetAllBlogPosts();
+        Task<List<BlogPostModel>> GetAllBlogPosts();
     }
 }
