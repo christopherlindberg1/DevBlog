@@ -12,7 +12,11 @@ namespace DataAccess.Data
     /// </summary>
     public interface IBlogPostData
     {
-        Task<List<BlogPostModel>> GetAllBlogPosts();
+        Task<List<BlogPostModel>> GetAllBlogPostsOrderByDateDesc();
+
+        Task<BlogPostModel> GetById(int id);
+
+        Task<List<BlogPostModel>> GetCurrentUsersBlogPostsOrderByDateDesc(string userId);
 
         Task<int> CreateBlogPost(BlogPostModel blogPost);
     }
