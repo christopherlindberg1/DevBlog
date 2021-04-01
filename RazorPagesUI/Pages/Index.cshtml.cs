@@ -26,7 +26,7 @@ namespace BlogRazorPages.Pages
 
         public async Task<IActionResult> OnGet()
         {
-            BlogPosts = await _blogPostData.GetAllBlogPosts();
+            BlogPosts = await _blogPostData.GetAllBlogPostsOrderByDateDesc();
 
             return Page();
         }
