@@ -24,23 +24,33 @@ namespace DataAccess.Models
         {
             get
             {
-                string[] words = Content.Split(' ');
+                bool cameToTheEndOfContent = false;
+                const int nrOfWordsInTrimmedContent = 25;
 
+                string[] words = Content.Split(' ');
+                
                 StringBuilder builder = new StringBuilder();
 
                 for (int i = 0; i < words.Length; i++)
                 {   
-                    if (i >= words.Length)
+                    if (i == words.Length - 1)
                     {
+                        cameToTheEndOfContent = true;
                         break;
                     }
 
-                    if (i > 19)
+                    if (i == nrOfWordsInTrimmedContent - 1)
                     {
                         break;
                     }
 
                     builder.Append($"{ words[i] } ");
+                }
+
+                // Add three dots if there is more content left.
+                if (cameToTheEndOfContent == false)
+                {
+                    builder.Append("...");
                 }
 
                 return builder.ToString();
