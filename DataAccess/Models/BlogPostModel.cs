@@ -9,8 +9,7 @@ namespace DataAccess.Models
 {
     public class BlogPostModel
     {
-        [Required]
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
 
         [Required]
         public string AuthorId { get; set; }
@@ -20,6 +19,33 @@ namespace DataAccess.Models
 
         [Required]
         public string Content { get; set; }
+
+        public string TrimmedContent
+        {
+            get
+            {
+                string[] words = Content.Split(' ');
+
+                StringBuilder builder = new StringBuilder();
+
+                for (int i = 0; i < words.Length; i++)
+                {   
+                    if (i >= words.Length)
+                    {
+                        break;
+                    }
+
+                    if (i > 19)
+                    {
+                        break;
+                    }
+
+                    builder.Append($"{ words[i] } ");
+                }
+
+                return builder.ToString();
+            }
+        }
 
         [Required]
         public DateTime DateTimeCreated { get; set; }

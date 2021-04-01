@@ -50,23 +50,35 @@ namespace DataAccess.Db
         }
 
         /// <summary>
-        /// 
+        /// Saves data to the database
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Type of data to be saved</typeparam>
         /// <param name="storedProcedure"></param>
         /// <param name="parameters"></param>
         /// <param name="connectionStringName"></param>
         /// <returns></returns>
-        public async Task<int> SaveData<T>(string storedProcedure, T parameters, string connectionStringName)
+        public async Task<int> SaveData<T>(
+            string storedProcedure,
+            T parameters,
+            string connectionStringName)
         {
             string connectionString = _config.GetConnectionString(connectionStringName);
 
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                return await connection.ExecuteAsync(
-                    storedProcedure,
-                    parameters,
-                    commandType: CommandType.StoredProcedure);
+                try
+                {
+                    return await connection.ExecuteAsync(
+                        storedProcedure,
+                        parameters,
+                        commandType: CommandType.StoredProcedure);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+
+                    return 10;
+                }
             }
         }
     }

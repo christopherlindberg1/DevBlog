@@ -6,7 +6,8 @@
 <section>
     <h1>Create a new post</h1>
     <form method="post">
-        <div asp-validation-summary="All" class="text-danger"></div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="BlogPost.AuthorId" type="hidden" class="form-control" />
         <div class="form-group">
             <label asp-for="BlogPost.Title"></label>
             <input asp-for="BlogPost.Title" class="form-control" />
@@ -22,3 +23,7 @@
         </div>
     </form>
 </section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

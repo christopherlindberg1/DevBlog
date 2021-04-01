@@ -13,5 +13,7 @@ namespace DataAccess.Data
     public interface IBlogPostData
     {
         Task<List<BlogPostModel>> GetAllBlogPosts();
+
+        Task<int> CreateBlogPost(BlogPostModel blogPost);
     }
 }

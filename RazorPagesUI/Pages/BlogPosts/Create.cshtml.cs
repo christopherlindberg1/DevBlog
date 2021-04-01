@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using DataAccess.Data;
 using DataAccess.Models;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using RazorPagesUI.Utility;
 
 namespace BlogRazorPages.Pages.BlogPosts
 {
@@ -17,6 +19,7 @@ namespace BlogRazorPages.Pages.BlogPosts
         private readonly ILogger<IndexModel> _logger;
         private readonly IBlogPostData _blogPostData;
 
+        [BindProperty]
         public BlogPostModel BlogPost { get; set; }
 
         public CreateModel(ILogger<IndexModel> logger, IBlogPostData blogPostData)
@@ -27,24 +30,30 @@ namespace BlogRazorPages.Pages.BlogPosts
         
         public void OnGetAsync()
         {
+            BlogPost = new BlogPostModel();
+            BlogPost.AuthorId = IdentityUtility.GetUserId((ClaimsIdentity)this.User.Identity);
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPost()
         {
-            BlogPost.AuthorId = "asdf";
-            BlogPost.DateTimeCreated = DateTime.Now;
-            BlogPost.DateTimeLastEdited = DateTime.Now;
+            //string userId = IdentityUtility.GetUserId((ClaimsIdentity)this.User.Identity);
 
-            if (ModelState.IsValid)
+            //BlogPost.AuthorId = userId;
+            BlogPost.DateTimeCreated = DateTime.Now;
+            BlogPost.DateTimeLastEdited = BlogPost.DateTimeCreated;
+
+            IEnumerable<Microsoft.AspNetCore.Mvc.ModelBinding.ModelError> errors;
+
+            if (ModelState.IsValid == false)
             {
-                // Add post to db
-                
-                return Page();
+                errors = ModelState.Values.SelectMany(v => v.Errors);
+
+                //return Page();
             }
 
-            throw new InvalidOperationException();
-        }
+            int id = await _blogPostData.CreateBlogPost(BlogPost);
 
-        
+            return RedirectToPage("./Display", new { Id = id });
+        }
     }
 }

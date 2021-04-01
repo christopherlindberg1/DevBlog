@@ -1,11 +1,35 @@
 ﻿@page
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 @model BlogRazorPages.Pages.BlogPosts.IndexModel
+@using DataAccess.Models
 @{
     ViewData["Title"] = "Blog posts";
 }
 
 <section>
     <h1>Blog posts</h1>
-    <p>Here are all blog posts</p>
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+    <div class="d-flex flex-row justify-content-end mb-4">
+        <a asp-page="./Create" class="btn btn-primary">Create post</a>
+    </div>
+    }
+
+    @foreach (BlogPostModel blogPost in Model.BlogPosts)
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">@blogPost.Title</h5>
+                <p class="card-text">@blogPost.TrimmedContent</p>
+                <a asp-page="./Display" asp-route-id=@blogPost.Id class="btn btn-primary">Read</a>
+            </div>
+        </div>
+    }
+    <a asp-page="/BlogPosts/Create">Create post</a>
 
 </section>
