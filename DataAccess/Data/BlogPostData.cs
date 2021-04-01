@@ -78,5 +78,30 @@ namespace DataAccess.Data
 
             return parameters.Get<int>("Id");
         }
+
+        public async Task EditBlogPost(BlogPostModel blogPost)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+
+            parameters.Add("Id", blogPost.Id);
+            parameters.Add("Title", blogPost.Title);
+            parameters.Add("Content", blogPost.Content);
+
+            await _dataAccess.SaveData(
+                "dbo.spBlogPost_EditPost",
+                parameters,
+                _connectionStringData.SqlConnectionName);
+        }
+
+        public async Task DeleteBlogPost(int id)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("Id", id);
+
+            await _dataAccess.SaveData(
+                "dbo.spBlogPost_DeletePost",
+                parameters,
+                _connectionStringData.SqlConnectionName);
+        }
     }
 }
