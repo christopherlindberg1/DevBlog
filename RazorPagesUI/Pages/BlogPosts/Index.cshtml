@@ -11,25 +11,61 @@
 }
 
 <section>
-    <h1>Blog posts</h1>
+    <div class="">
+        <div class="row mt-5 mb-4">
+            <div class="col-12">
+                <h1>Blog posts</h1>
 
-    @if (SignInManager.IsSignedIn(User))
-    {
-    <div class="d-flex flex-row justify-content-end mb-4">
-        <a asp-page="./Create" class="btn btn-primary">Create post</a>
-    </div>
-    }
+                <p>Here you will find blog posts aout everything regarding software development.</p>
 
-    @foreach (BlogPostModel blogPost in Model.BlogPosts)
-    {
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">@blogPost.Title</h5>
-                <p class="card-text">@blogPost.TrimmedContent</p>
-                <a asp-page="./Display" asp-route-id=@blogPost.Id class="btn btn-primary">Read</a>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <div class="d-flex flex-row justify-content-start mb-4">
+                        <a asp-page="./Create" class="btn btn-primary">Create a new post</a>
+                    </div>
+                }
+                else
+                {
+                    <p>
+                        Do you want to create your own posts? 
+                        <a asp-area="Identity" asp-page="/Account/Login">Log in</a> 
+                        or 
+                        <a asp-area="Identity" asp-page="/Account/Register">Create an account</a>.
+                    </p>
+                }
             </div>
         </div>
-    }
-    <a asp-page="/BlogPosts/Create">Create post</a>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a>Artificial Intelligence</a></li>
+                        <li><a>Functional programming</a></li>
+                        <li><a>Object oriented programming</a></li>
+                        <li><a>Software architecture</a></li>
+                        <li><a>DevOps</a></li>
+                    </ul>
+                </div>
+            </div>
 
+            <div class="col-md-8">
+                <h2>Posts</h2>
+
+                @foreach (BlogPostModel blogPost in Model.BlogPosts)
+                {
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">@blogPost.Title</h5>
+                            <p class="card-text">@blogPost.TrimmedContent</p>
+                            <a asp-page="./Display" asp-route-id=@blogPost.Id class="btn btn-primary">Go to post</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        
+       
+    </div>
 </section>
