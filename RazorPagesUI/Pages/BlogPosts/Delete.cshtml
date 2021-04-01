@@ -1,0 +1,20 @@
+﻿@page
+@model RazorPagesUI.Pages.BlogPosts.DeleteModel
+@{
+    ViewData["Title"] = $"Remove post: { Model.BlogPost.Title }";
+}
+
+<section>
+    <h1>Remove post</h1>
+    <p>
+        Are you sure you want to remove your post 
+        <span class="font-italic">@Model.BlogPost.Title</span>?
+    </p>
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="BlogPostId" type="hidden" class="form-control" />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Remove post</button>
+        </div>
+    </form>
+</section>
