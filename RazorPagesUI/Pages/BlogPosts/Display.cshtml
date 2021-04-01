@@ -1,0 +1,29 @@
+﻿@page
+@model BlogRazorPages.Pages.BlogPosts.DetailsModel
+@{
+}
+
+<section>
+    <article class="blog-post">
+        <h1 class="mb-4">@Model.BlogPost.Title</h1>
+        <p>
+            <span class="mr-4">Created: @Model.BlogPost.DateTimeCreated</span>
+            <span class="mr-4">Last edited: @Model.BlogPost.DateTimeLastEdited</span>
+        </p>
+        <p>@Model.BlogPost.Content</p>
+    </article>
+    <section class="comment-section">
+        <div class="post-comment">
+            <form method="post">
+                form for posting comment on a post
+            </form>
+        </div>
+        <div class="comments">
+            <div class="comment">
+                <h5>Author of comment</h5>
+                <p>Text of comment</p>
+                <span>DateTime posted</span>
+            </div>
+        </div>
+    </section>
+</section>
