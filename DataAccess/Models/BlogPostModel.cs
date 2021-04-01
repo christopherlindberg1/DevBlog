@@ -62,5 +62,15 @@ namespace DataAccess.Models
 
         [Required]
         public DateTime DateTimeLastEdited { get; set; }
+
+        public string DisplayDateCreated
+        {
+            get => DateTimeCreated.ToShortDateString();
+        }
+
+        public string DisplayDateLastEdited
+        {
+            get => DateTimeLastEdited.ToShortDateString();
+        }
     }
 }
