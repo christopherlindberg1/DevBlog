@@ -19,5 +19,9 @@ namespace DataAccess.Data
         Task<List<BlogPostModel>> GetCurrentUsersBlogPostsOrderByDateDesc(string userId);
 
         Task<int> CreateBlogPost(BlogPostModel blogPost);
+
+        Task EditBlogPost(BlogPostModel blogPost);
+
+        Task DeleteBlogPost(int id);
     }
 }
