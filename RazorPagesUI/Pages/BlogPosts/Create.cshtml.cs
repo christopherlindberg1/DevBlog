@@ -36,19 +36,16 @@ namespace BlogRazorPages.Pages.BlogPosts
 
         public async Task<IActionResult> OnPost()
         {
-            //string userId = IdentityUtility.GetUserId((ClaimsIdentity)this.User.Identity);
-
-            //BlogPost.AuthorId = userId;
             BlogPost.DateTimeCreated = DateTime.Now;
             BlogPost.DateTimeLastEdited = BlogPost.DateTimeCreated;
 
-            IEnumerable<Microsoft.AspNetCore.Mvc.ModelBinding.ModelError> errors;
+            //IEnumerable<Microsoft.AspNetCore.Mvc.ModelBinding.ModelError> errors;
 
             if (ModelState.IsValid == false)
             {
-                errors = ModelState.Values.SelectMany(v => v.Errors);
+                //errors = ModelState.Values.SelectMany(v => v.Errors);
 
-                //return Page();
+                return Page();
             }
 
             int id = await _blogPostData.CreateBlogPost(BlogPost);
