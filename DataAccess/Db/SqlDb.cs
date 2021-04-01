@@ -40,12 +40,21 @@ namespace DataAccess.Db
 
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                IEnumerable<T> rows = await connection.QueryAsync<T>(
-                    storedProcedure,
-                    parameters,
-                    commandType: CommandType.Text);
+                try
+                {
+                    IEnumerable<T> rows = await connection.QueryAsync<T>(
+                        storedProcedure,
+                        parameters,
+                        commandType: CommandType.StoredProcedure);
 
-                return rows.ToList();
+                    return rows.ToList();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+
+                    throw;
+                }
             }
         }
 
