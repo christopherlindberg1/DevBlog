@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using DataAccess.Data;
 using DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using RazorPagesUI.Utility;
 
 namespace BlogRazorPages.Pages.BlogPosts
 {
@@ -17,6 +19,10 @@ namespace BlogRazorPages.Pages.BlogPosts
 
         public BlogPostModel BlogPost { get; set; }
 
+        public string UserId { get; set; } = null;
+
+        public bool IsAuthor { get; set; } = false;
+
         public DetailsModel(ILogger<IndexModel> logger, IBlogPostData blogPostData)
         {
             _logger = logger;
@@ -25,9 +31,14 @@ namespace BlogRazorPages.Pages.BlogPosts
 
         public async Task<IActionResult> OnGet(int id)
         {
-            List<BlogPostModel> blogPosts = await _blogPostData.GetAllBlogPosts();
+            if (User.Identity.IsAuthenticated)
+            {
+                UserId = IdentityUtility.GetUserId((ClaimsIdentity)this.User.Identity);
+            }
 
-            BlogPost = blogPosts.FirstOrDefault(x => x.Id == id);
+            BlogPost = await _blogPostData.GetById(id);
+
+            IsAuthor = UserId == BlogPost.AuthorId;
 
             return Page();
         }
