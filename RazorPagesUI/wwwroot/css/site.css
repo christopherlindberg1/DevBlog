@@ -1,71 +1,140 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    /*background-color: #f4f4f4;*/
+}
+
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
+
+.text {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-fluid {
+    max-width: 1200px;
+}
+
+.white-container {
+    background-color: #fff;
+    padding: 0.75rem;
+    /*border: 3px solid #ddd;*/
+    box-shadow: 0px 0px 5px #ddd;
+    border-radius: 0.25rem;
+}
+
+
+
+
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    font-size: 14px;
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }
+
+
+
+
+@media (min-width: 576px) {
+    /*.col-md-4.left {
+        padding-left: 0;
+        padding-right: 1rem;
+    }
+
+    .col-md-8.right {
+        padding-left: 1rem;
+        padding-right: 0;
+    }*/
+
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    /*.col-md-4 {
+        padding-right: 1rem;
+    }
+
+    .col-md-8 {
+        padding-left: 1rem;
+    }*/
+}
+
+
+
