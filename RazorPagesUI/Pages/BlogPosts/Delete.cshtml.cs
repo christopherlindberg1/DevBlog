@@ -17,11 +17,11 @@ namespace RazorPagesUI.Pages.BlogPosts
         private readonly ILogger<DeleteModel> _logger;
         private readonly IBlogPostData _blogPostData;
 
-        [BindProperty]
+        //[BindProperty]
         public BlogPostModel BlogPost { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public int BlogPostId { get; set; }
+        public int Id { get; set; }
 
         public string UserId { get; set; } = null;
 
@@ -31,11 +31,11 @@ namespace RazorPagesUI.Pages.BlogPosts
             _blogPostData = blogPostData;
         }
 
-        public async Task<IActionResult> OnGetAsync(int id)
+        public async Task<IActionResult> OnGetAsync()
         {
             UserId = IdentityUtility.GetUserId((ClaimsIdentity)User.Identity);
 
-            BlogPost = await _blogPostData.GetById(id);
+            BlogPost = await _blogPostData.GetById(Id);
 
             if (BlogPost == null)
             {
@@ -48,7 +48,7 @@ namespace RazorPagesUI.Pages.BlogPosts
                 return RedirectToPage("./Index");
             }
 
-            BlogPostId = id;
+            //BlogPostId = id;
 
             return Page();
         }
@@ -57,7 +57,7 @@ namespace RazorPagesUI.Pages.BlogPosts
         {
             UserId = IdentityUtility.GetUserId((ClaimsIdentity)User.Identity);
 
-            BlogPost = await _blogPostData.GetById(BlogPostId);
+            BlogPost = await _blogPostData.GetById(Id);
 
             if (BlogPost == null)
             {
@@ -70,7 +70,7 @@ namespace RazorPagesUI.Pages.BlogPosts
                 return RedirectToPage("./Index");
             }
 
-            await _blogPostData.DeleteBlogPost(BlogPostId);
+            await _blogPostData.DeleteBlogPost(Id);
 
             return RedirectToPage("./Index");
         }
