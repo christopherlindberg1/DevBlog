@@ -33,13 +33,13 @@ namespace DataAccess.Models
 
                 for (int i = 0; i < words.Length; i++)
                 {
-                    if (i == words.Length - 1)
+                    if (i == words.Length)
                     {
                         cameToTheEndOfContent = true;
                         break;
                     }
 
-                    if (i == nrOfWordsInTrimmedContent - 1)
+                    if (i == nrOfWordsInTrimmedContent)
                     {
                         break;
                     }
