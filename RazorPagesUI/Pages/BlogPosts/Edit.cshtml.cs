@@ -19,11 +19,13 @@ namespace RazorPagesUI.Pages.BlogPosts
         private readonly ILogger<EditModel> _logger;
         private readonly IBlogPostData _blogPostData;
 
-        [BindProperty]
         public BlogPostModel BlogPost { get; set; }
 
+        [BindProperty]
+        public EditBlogPostModel BlogPostEditData { get; set; }
+
         [BindProperty(SupportsGet = true)]
-        public int BlogPostId { get; set; }
+        public int Id { get; set; }
 
         public string UserId { get; set; } = null;
 
@@ -50,8 +52,6 @@ namespace RazorPagesUI.Pages.BlogPosts
                 return RedirectToPage("./Index");
             }
 
-            BlogPostId = id;
-
             return Page();
         }
 
@@ -59,7 +59,7 @@ namespace RazorPagesUI.Pages.BlogPosts
         {
             UserId = IdentityUtility.GetUserId((ClaimsIdentity)User.Identity);
 
-            BlogPost = await _blogPostData.GetById(BlogPostId);
+            BlogPost = await _blogPostData.GetById(Id);
 
             if (BlogPost == null)
             {
@@ -72,9 +72,9 @@ namespace RazorPagesUI.Pages.BlogPosts
                 return RedirectToPage("./Index");
             }
 
-            //await _blogPostData.EditBlogPost();
+            await _blogPostData.EditBlogPost(BlogPostEditData);
 
-            return Page();
+            return RedirectToPage("./Display", new { Id = BlogPostEditData.Id });
         }
     }
 }

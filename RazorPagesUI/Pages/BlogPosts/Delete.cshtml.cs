@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using DataAccess.Data;
 using DataAccess.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -12,6 +13,7 @@ using RazorPagesUI.Utility;
 
 namespace RazorPagesUI.Pages.BlogPosts
 {
+    [Authorize]
     public class DeleteModel : PageModel
     {
         private readonly ILogger<DeleteModel> _logger;

@@ -8,16 +8,16 @@
     <h1>Edit post</h1>
     <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input asp-for="BlogPostId" type="hidden" class="form-control" />
+        <input asp-for="BlogPostEditData.Id" value=@Model.Id type="hidden" class="form-control" />
         <div class="form-group">
-            <label asp-for="BlogPost.Title"></label>
-            <input asp-for="BlogPost.Title" class="form-control" />
+            <label asp-for="BlogPostEditData.Title"></label>
+            <input asp-for="BlogPostEditData.Title" value=@Model.BlogPost.Title class="form-control" />
             <span asp-validation-for="BlogPost.Title" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="BlogPost.Content"></label>
-            <input asp-for="BlogPost.Content" class="form-control" />
-            <span asp-validation-for="BlogPost.Content" class="text-danger"></span>
+            <label asp-for="BlogPostEditData.Content"></label>
+            <input asp-for="BlogPostEditData.Content" value=@Model.BlogPost.Content class="form-control" />
+            <span asp-validation-for="BlogPostEditData.Content" class="text-danger"></span>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Save post</button>

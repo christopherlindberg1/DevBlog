@@ -20,7 +20,7 @@ namespace DataAccess.Data
 
         Task<int> CreateBlogPost(BlogPostModel blogPost);
 
-        Task EditBlogPost(BlogPostModel blogPost);
+        Task EditBlogPost(EditBlogPostModel blogPost);
 
         Task DeleteBlogPost(int id);
     }
