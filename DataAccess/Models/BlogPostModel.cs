@@ -9,7 +9,7 @@ namespace DataAccess.Models
 {
     public class BlogPostModel
     {
-        public int Id { get; set; } = 0;
+        public int Id { get; set; }
 
         [Required]
         public string AuthorId { get; set; }
@@ -28,11 +28,11 @@ namespace DataAccess.Models
                 const int nrOfWordsInTrimmedContent = 25;
 
                 string[] words = Content.Split(' ');
-                
+
                 StringBuilder builder = new StringBuilder();
 
                 for (int i = 0; i < words.Length; i++)
-                {   
+                {
                     if (i == words.Length - 1)
                     {
                         cameToTheEndOfContent = true;

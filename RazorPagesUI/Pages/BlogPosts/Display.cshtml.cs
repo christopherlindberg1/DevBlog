@@ -33,7 +33,7 @@ namespace BlogRazorPages.Pages.BlogPosts
         {
             if (User.Identity.IsAuthenticated)
             {
-                UserId = IdentityUtility.GetUserId((ClaimsIdentity)this.User.Identity);
+                UserId = IdentityUtility.GetUserId((ClaimsIdentity)User.Identity);
             }
 
             BlogPost = await _blogPostData.GetById(id);

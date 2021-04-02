@@ -17,13 +17,12 @@ namespace RazorPagesUI.Pages.BlogPosts
         private readonly ILogger<DeleteModel> _logger;
         private readonly IBlogPostData _blogPostData;
 
-        //[BindProperty]
         public BlogPostModel BlogPost { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
 
-        public string UserId { get; set; } = null;
+        public string UserId { get; set; }
 
         public DeleteModel(ILogger<DeleteModel> logger, IBlogPostData blogPostData)
         {
@@ -47,8 +46,6 @@ namespace RazorPagesUI.Pages.BlogPosts
             {
                 return RedirectToPage("./Index");
             }
-
-            //BlogPostId = id;
 
             return Page();
         }
