@@ -73,6 +73,6 @@ namespace DataAccess.Models
             get => DateTimeLastEdited.ToShortDateString();
         }
 
-        public List<BlogPostCommentModel> Comments { get; set; }
+        public List<BlogPostDisplayCommentModel> Comments { get; set; }
     }
 }
