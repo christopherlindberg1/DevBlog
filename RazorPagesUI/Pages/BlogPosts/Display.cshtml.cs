@@ -23,6 +23,9 @@ namespace BlogRazorPages.Pages.BlogPosts
 
         public bool IsAuthor { get; set; } = false;
 
+        [BindProperty]
+        public BlogPostAddCommentModel Comment { get; set; }
+
         public DetailsModel(ILogger<IndexModel> logger, IBlogPostData blogPostData)
         {
             _logger = logger;
@@ -38,9 +41,31 @@ namespace BlogRazorPages.Pages.BlogPosts
 
             BlogPost = await _blogPostData.GetById(id);
 
+            BlogPost.Comments = await _blogPostData.GetBlogPostComments(id);
+
             IsAuthor = UserId == BlogPost.AuthorId;
 
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int id)
+        {
+            BlogPost = await _blogPostData.GetById(id);
+
+            Comment.BlogPostId = BlogPost.Id;
+
+            IEnumerable<Microsoft.AspNetCore.Mvc.ModelBinding.ModelError> errors;
+
+            if (ModelState.IsValid == false)
+            {
+                    errors = ModelState.Values.SelectMany(v => v.Errors);
+
+                    return Page();
+            }
+
+            await _blogPostData.AddComment(Comment);
+
+            return RedirectToPage("./Display", new { Id = id });
         }
     }
 }
