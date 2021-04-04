@@ -79,6 +79,11 @@ a {
     margin-right: auto;
 }
 
+.blog-post {
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 1rem;
+}
+
 .info-section{
     background-color: #f4f4f4;
     padding: 1rem;
