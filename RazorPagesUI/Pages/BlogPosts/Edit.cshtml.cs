@@ -21,7 +21,7 @@ namespace RazorPagesUI.Pages.BlogPosts
 
         public BlogPostModel BlogPost { get; set; }
 
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public EditBlogPostModel BlogPostEditData { get; set; }
 
         [BindProperty(SupportsGet = true)]
@@ -51,6 +51,9 @@ namespace RazorPagesUI.Pages.BlogPosts
             {
                 return RedirectToPage("./Index");
             }
+
+            BlogPostEditData.Content = BlogPost.Content;
+            BlogPostEditData.Title = BlogPost.Title;
 
             return Page();
         }
