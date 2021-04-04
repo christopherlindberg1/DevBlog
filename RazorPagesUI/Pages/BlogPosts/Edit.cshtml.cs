@@ -57,6 +57,11 @@ namespace RazorPagesUI.Pages.BlogPosts
 
         public async Task<IActionResult> OnPostAsync()
         {
+            if (ModelState.IsValid == false)
+            {
+                return Page();
+            }
+
             UserId = IdentityUtility.GetUserId((ClaimsIdentity)User.Identity);
 
             BlogPost = await _blogPostData.GetById(Id);

@@ -16,7 +16,12 @@ namespace DataAccess.Models
         public string AuthorId { get; set; }
 
         [Required]
-        [Display(Name = "Comment Text")]
         public string CommentText { get; set; }
+
+        [Required]
+        public DateTime DateTimePosted { get; set; }
+
+        [Required]
+        public DateTime DateTimeLastEdited { get; set; }
     }
 }

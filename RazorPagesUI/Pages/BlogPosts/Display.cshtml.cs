@@ -53,6 +53,8 @@ namespace BlogRazorPages.Pages.BlogPosts
             BlogPost = await _blogPostData.GetById(id);
 
             Comment.BlogPostId = BlogPost.Id;
+            Comment.DateTimePosted = DateTime.UtcNow;
+            Comment.DateTimeLastEdited= Comment.DateTimePosted;
 
             IEnumerable<Microsoft.AspNetCore.Mvc.ModelBinding.ModelError> errors;
 

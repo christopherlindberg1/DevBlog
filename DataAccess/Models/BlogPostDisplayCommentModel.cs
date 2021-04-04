@@ -20,14 +20,14 @@ namespace DataAccess.Models
         public string CommentText { get; set; }
 
         [Required]
-        public DateTime DateTimePosted { get; set; }
+        public DateTime DateTimeCreated { get; set; }
 
         [Required]
         public DateTime DateTimeLastEdited { get; set; }
 
-        public string DisplayDateTimePosted
+        public string DisplayDateTimeCreated
         {
-            get => DateTimePosted.ToShortDateString();
+            get => DateTimeCreated.ToShortDateString();
         }
 
         public string DisplayDateTimeLastEdited

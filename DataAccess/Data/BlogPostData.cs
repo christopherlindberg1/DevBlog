@@ -126,6 +126,8 @@ namespace DataAccess.Data
             parameters.Add("AuthorId", comment.AuthorId);
             parameters.Add("BlogPostId", comment.BlogPostId);
             parameters.Add("CommentText", comment.CommentText);
+            parameters.Add("DateTimePosted", comment.DateTimePosted);
+            parameters.Add("DateTimeLastEdited", comment.DateTimeLastEdited);
 
             await _dataAccess.SaveData(
                 "dbo.spBlogPost_AddComment",
