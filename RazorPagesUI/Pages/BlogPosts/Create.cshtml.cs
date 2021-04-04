@@ -34,11 +34,8 @@ namespace BlogRazorPages.Pages.BlogPosts
             BlogPost.AuthorId = IdentityUtility.GetUserId((ClaimsIdentity)this.User.Identity);
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
-            BlogPost.DateTimeCreated = DateTime.Now;
-            BlogPost.DateTimeLastEdited = BlogPost.DateTimeCreated;
-
             //IEnumerable<Microsoft.AspNetCore.Mvc.ModelBinding.ModelError> errors;
 
             if (ModelState.IsValid == false)
@@ -47,6 +44,9 @@ namespace BlogRazorPages.Pages.BlogPosts
 
                 return Page();
             }
+
+            BlogPost.DateTimeCreated = DateTime.Now;
+            BlogPost.DateTimeLastEdited = BlogPost.DateTimeCreated;
 
             int id = await _blogPostData.CreateBlogPost(BlogPost);
 
