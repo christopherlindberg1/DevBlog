@@ -118,5 +118,30 @@ namespace DataAccess.Data
                 parameters,
                 _connectionStringData.SqlConnectionName);
         }
+
+        public async Task AddComment(BlogPostAddCommentModel comment)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+
+            parameters.Add("AuthorId", comment.AuthorId);
+            parameters.Add("BlogPostId", comment.BlogPostId);
+            parameters.Add("CommentText", comment.CommentText);
+
+            await _dataAccess.SaveData(
+                "dbo.spBlogPost_AddComment",
+                parameters,
+                _connectionStringData.SqlConnectionName);
+        }
+
+        public async Task<List<BlogPostDisplayCommentModel>> GetBlogPostComments(int blogPostId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("BlogPostId", blogPostId);
+
+            return await _dataAccess.LoadData<BlogPostDisplayCommentModel, dynamic>(
+                "dbo.spBlogPost_GetCommentsForBlogPost",
+                parameters,
+                _connectionStringData.SqlConnectionName);
+        }
     }
 }
