@@ -23,5 +23,9 @@ namespace DataAccess.Data
         Task EditBlogPost(EditBlogPostModel blogPost);
 
         Task DeleteBlogPost(int id);
+
+        Task AddComment(BlogPostAddCommentModel comment);
+
+        Task<List<BlogPostDisplayCommentModel>> GetBlogPostComments(int blogPostId);
     }
 }
