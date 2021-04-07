@@ -14,6 +14,8 @@ namespace DataAccess.Models
         [Required]
         public string AuthorId { get; set; }
 
+        public string AuthorUserName { get; set; }
+
         [Required]
         public string Title { get; set; }
 
