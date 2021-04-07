@@ -1,8 +1,8 @@
 ﻿@page
 
-@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@using RazorPagesUI.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 @model BlogRazorPages.Pages.BlogPosts.IndexModel
 @using DataAccess.Models
@@ -27,15 +27,15 @@
                 else
                 {
                     <p>
-                        Do you want to create your own posts? 
-                        <a asp-area="Identity" asp-page="/Account/Login">Log in</a> 
-                        or 
+                        Do you want to create your own posts?
+                        <a asp-area="Identity" asp-page="/Account/Login">Log in</a>
+                        or
                         <a asp-area="Identity" asp-page="/Account/Register">Create an account</a>.
                     </p>
                 }
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-md-4">
                 <div class="">
@@ -65,7 +65,7 @@
                 }
             </div>
         </div>
-        
-       
+
+
     </div>
 </section>
