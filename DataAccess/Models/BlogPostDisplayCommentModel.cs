@@ -16,6 +16,9 @@ namespace DataAccess.Models
         public string AuthorId { get; set; }
 
         [Required]
+        public string AuthorUserName { get; set; }
+
+        [Required]
         [Display(Name = "Comment Text")]
         public string CommentText { get; set; }
 
