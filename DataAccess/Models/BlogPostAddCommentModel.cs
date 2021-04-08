@@ -12,7 +12,6 @@ namespace DataAccess.Models
         [Required]
         public int BlogPostId { get; set; }
 
-        [Required]
         public string AuthorId { get; set; }
 
         [Required]
