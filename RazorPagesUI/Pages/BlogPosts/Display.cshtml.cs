@@ -21,6 +21,8 @@ namespace BlogRazorPages.Pages.BlogPosts
 
         public string UserId { get; set; } = null;
 
+        public bool IsAuthenticated { get; set; }
+
         public bool IsAuthor { get; set; } = false;
 
         [BindProperty]
@@ -37,6 +39,11 @@ namespace BlogRazorPages.Pages.BlogPosts
             if (User.Identity.IsAuthenticated)
             {
                 UserId = IdentityUtility.GetUserId((ClaimsIdentity)User.Identity);
+                IsAuthenticated = true;
+            }
+            else
+            {
+                IsAuthenticated = false;
             }
 
             BlogPost = await _blogPostData.GetById(id);
