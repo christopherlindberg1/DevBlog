@@ -55,7 +55,6 @@
                 <form method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="BlogPost.Id" type="hidden" class="form-control" />
-                    <input asp-for="Comment.AuthorId" value=@Model.BlogPost.AuthorId type="hidden" class="form-control" />
                     <div class="form-group">
                         <textarea asp-for="Comment.CommentText" class="form-control"></textarea>
                         <span asp-validation-for="Comment.CommentText" class="text-danger"></span>
