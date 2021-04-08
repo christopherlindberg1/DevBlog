@@ -84,6 +84,7 @@
     <Build Include="dbo\Stored Procedures\spBlogPost_DeletePost.sql" />
     <Build Include="dbo\Stored Procedures\spBlogPost_AddComment.sql" />
     <Build Include="dbo\Stored Procedures\spBlogPost_GetCommentsForBlogPost.sql" />
+    <Build Include="dbo\Stored Procedures\spAspNetUsers_DeleteUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishProfiles\BlogDB.publish.xml" />
