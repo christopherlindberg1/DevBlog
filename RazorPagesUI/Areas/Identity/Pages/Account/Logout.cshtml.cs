@@ -37,7 +37,7 @@ namespace BlogRazorPages.Areas.Identity.Pages.Account
             }
             else
             {
-                return RedirectToPage();
+                return RedirectToPage("/Index");
             }
         }
     }
