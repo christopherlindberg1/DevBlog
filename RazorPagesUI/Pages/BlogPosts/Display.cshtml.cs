@@ -50,8 +50,14 @@ namespace BlogRazorPages.Pages.BlogPosts
 
         public async Task<IActionResult> OnPostAsync(int id)
         {
+            if (User.Identity.IsAuthenticated == false)
+            {
+                return Page();
+            }
+            
             BlogPost = await _blogPostData.GetById(id);
 
+            Comment.AuthorId = IdentityUtility.GetUserId((ClaimsIdentity)User.Identity);
             Comment.BlogPostId = BlogPost.Id;
             Comment.DateTimePosted = DateTime.UtcNow;
             Comment.DateTimeLastEdited= Comment.DateTimePosted;
@@ -60,9 +66,9 @@ namespace BlogRazorPages.Pages.BlogPosts
 
             if (ModelState.IsValid == false)
             {
-                    errors = ModelState.Values.SelectMany(v => v.Errors);
+                errors = ModelState.Values.SelectMany(v => v.Errors);
 
-                    return Page();
+                return Page();
             }
 
             await _blogPostData.AddComment(Comment);
