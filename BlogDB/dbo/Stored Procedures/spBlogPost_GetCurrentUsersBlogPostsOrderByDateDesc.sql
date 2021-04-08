@@ -1,7 +1,7 @@
 ﻿-- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
+-- Author:		Christopher Lindberg
+-- Create date: 2021-04-08
+-- Description:	Gets a users blog posts, ordered desc.
 -- =============================================
 CREATE PROCEDURE [dbo].[spBlogPost_GetCurrentUsersBlogPostsOrderByDateDesc]
 	-- Add the parameters for the stored procedure here

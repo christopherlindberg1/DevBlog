@@ -1,7 +1,7 @@
 ﻿-- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
+-- Author:		Christopher Lindberg
+-- Create date: 2021-04-08
+-- Description:	Edits the title and content of a blog post.
 -- =============================================
 CREATE PROCEDURE [dbo].[spBlogPost_EditPost]
 	-- Add the parameters for the stored procedure here

@@ -11,7 +11,6 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT TOP 10 * from [dbo].[BlogPost]
-	order by [dbo].[BlogPost].[DateTimeCreated] desc
-
+	SELECT TOP 10 * FROM [dbo].[BlogPost]
+	ORDER BY [dbo].[BlogPost].[DateTimeCreated] DESC
 END

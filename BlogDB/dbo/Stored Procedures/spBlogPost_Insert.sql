@@ -6,13 +6,13 @@
 	@DateTimeLastEdited datetime2(7),
 	@Id int OUTPUT
 AS
-begin
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
 
-	set nocount on;
-
-	insert into dbo.[BlogPost](AuthorId, Title, Content, DateTimeCreated, DateTimeLastEdited)
-	values (@AuthorId, @Title, @Content, @DateTimeCreated, @DateTimeLastEdited);
+	INSERT INTO dbo.[BlogPost](AuthorId, Title, Content, DateTimeCreated, DateTimeLastEdited)
+	VALUES (@AuthorId, @Title, @Content, @DateTimeCreated, @DateTimeLastEdited);
 
 	SELECT @Id = SCOPE_IDENTITY();
-
-end
+END

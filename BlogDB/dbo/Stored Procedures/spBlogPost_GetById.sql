@@ -1,4 +1,8 @@
-﻿
+﻿-- =============================================
+-- Author:		Christopher Lindberg
+-- Create date: 2021-04-08
+-- Description:	Gets a blog post by id.
+-- =============================================
 CREATE PROCEDURE [dbo].[spBlogPost_GetById]
 	@Id INT 
 AS

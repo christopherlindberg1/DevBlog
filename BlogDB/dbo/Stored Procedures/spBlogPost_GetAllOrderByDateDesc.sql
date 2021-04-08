@@ -1,7 +1,7 @@
 ﻿-- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
+-- Author:		Christopher Lindberg
+-- Create date: 2021-04-08
+-- Description:	Gets all blog posts, newest post first.
 -- =============================================
 CREATE PROCEDURE [dbo].[spBlogPost_GetAllOrderByDateDesc]
 
@@ -12,6 +12,6 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * from [dbo].[BlogPost]
-	order by [dbo].BlogPost.DateTimeCreated desc;
+	SELECT * FROM [dbo].[BlogPost]
+	ORDER BY [dbo].BlogPost.DateTimeCreated DESC;
 END
