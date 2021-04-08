@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesUI", "RazorPagesU
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{E7D08D7E-2517-4AC8-8AA2-496FD2A54BCF}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BlogDB", "BlogDB\BlogDB.sqlproj", "{65CBA4D7-077D-4373-9123-34B1852AA0DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{E7D08D7E-2517-4AC8-8AA2-496FD2A54BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7D08D7E-2517-4AC8-8AA2-496FD2A54BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7D08D7E-2517-4AC8-8AA2-496FD2A54BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CBA4D7-077D-4373-9123-34B1852AA0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CBA4D7-077D-4373-9123-34B1852AA0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CBA4D7-077D-4373-9123-34B1852AA0DD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{65CBA4D7-077D-4373-9123-34B1852AA0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CBA4D7-077D-4373-9123-34B1852AA0DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CBA4D7-077D-4373-9123-34B1852AA0DD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
