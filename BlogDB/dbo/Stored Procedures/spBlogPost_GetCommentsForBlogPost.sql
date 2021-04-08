@@ -19,5 +19,6 @@ BEGIN
 	ON bp.Id = @BlogPostId
 	AND bp.Id = bpc.BlogPostId
 	INNER JOIN [dbo].[AspNetUsers] AS [user]
-	ON [user].Id = bpc.AuthorId;
+	ON [user].Id = bpc.AuthorId
+	ORDER BY bpc.DateTimeCreated DESC
 END
