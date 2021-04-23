@@ -47,8 +47,10 @@ namespace BlogRazorPages.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            [MaxLength(30, ErrorMessage = "User name can not be more than 30 characters.")]
+            [MinLength(3, ErrorMessage = "User name must be at least 3 characters.")]
             [Display(Name = "User name")]
-            public string UserName { get; set; }
+            public string DisplayUserName { get; set; }
 
             [Required]
             [EmailAddress]
@@ -82,6 +84,7 @@ namespace BlogRazorPages.Areas.Identity.Pages.Account
             {
                 var user = new ApplicationUser
                 {
+                    DisplayUserName = Input.DisplayUserName,
                     UserName = Input.Email,
                     Email = Input.Email
                 };
