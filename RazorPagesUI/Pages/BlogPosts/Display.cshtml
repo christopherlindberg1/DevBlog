@@ -70,7 +70,6 @@
                 {
                     <p>
                         You must be logged in to leave comments.
-
                         <a asp-area="Identity" asp-page="Account/Login">Log in</a> |
                         <a asp-area="Identity" asp-page="Account/Register">Register</a>
                     </p>
@@ -78,14 +77,15 @@
 
             </div>
             <div class="comments">
-                <div class="comment">
-                    @foreach (var comment in Model.BlogPost.Comments)
-                    {
-                        <h5>@comment.AuthorUserName</h5>
-                        <span class="d-block">@comment.CommentText</span>
-                        <span class="d-block">Posted @comment.DateTimeCreatedAgo ago</span>
-                    }
-                </div>
+                <h4 class="mt">Comments</h4>
+                @foreach (var comment in Model.BlogPost.Comments)
+                {
+                    <div class="comment">
+                        <span class="d-block comment-author-user-name">@comment.AuthorUserName</span>
+                        <span class="d-block comment-text">@comment.CommentText</span>
+                        <span class="d-block comment-datetime">Posted @comment.DateTimeCreatedAgo ago</span>
+                    </div>
+                }
             </div>
         </section>
     </section>

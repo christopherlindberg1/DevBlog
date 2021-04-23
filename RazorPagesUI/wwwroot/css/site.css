@@ -94,6 +94,29 @@ a {
     font-size: 0.9rem;
 }
 
+.comments {
+    margin-top: 1.5rem;
+}
+
+.comment {
+    border-top: 1px solid #ccc;
+    padding: 0.5rem;
+}
+
+.comment > .comment-author-user-name {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.comment > .comment-text {
+    font-size: 1rem;
+    margin: 0.15rem 0;
+}
+
+.comment > .comment-datetime {
+    font-size: 0.85rem;
+}
+
 
 
 
