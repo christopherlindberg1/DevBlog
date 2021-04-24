@@ -54,17 +54,18 @@
                 <h2>Posts</h2>
 
                 <div class="post-list">
-                @foreach (BlogPostModel blogPost in Model.BlogPosts)
-                {
-                    <div class="post-list-item">
+                    @foreach (BlogPostModel blogPost in Model.BlogPosts)
+                    {
                         <a asp-page="./Display" asp-route-id=@blogPost.Id class="post-list-link">
-                            <h5 class="post-list-item-header">@blogPost.Title</h5>
-                            <p class="post-list-item-content">@blogPost.TrimmedContent</p>
-                            <span class="post-list-item-author">@blogPost.AuthorUserName</span> 
-                            <span class="post-list-item-create-date">| @blogPost.DateTimeCreated</span>
+                            <div class="post-list-item">
+                                <h5 class="post-list-item-header">@blogPost.Title</h5>
+                                <p class="post-list-item-content">@blogPost.TrimmedContent</p>
+                                <span class="post-list-item-author">@blogPost.AuthorUserName</span>
+                                <span class="post-list-item-create-date">| @blogPost.DisplayDateCreated</span>
+                            </div>
                         </a>
-                    </div>
-                }
+
+                    }
                 </div>
                 
             </div>
