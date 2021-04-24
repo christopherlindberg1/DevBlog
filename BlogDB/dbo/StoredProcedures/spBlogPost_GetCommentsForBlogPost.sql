@@ -14,7 +14,7 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT [user].[DisplayUserName] AS AuthorUserName,
-	[bpc].[AuthorId], [bpc].[CommentText], [bpc].[DateTimeCreated],
+	[bpc].[Id], [bpc].[AuthorId], [bpc].[CommentText], [bpc].[DateTimeCreated],
 	[bpc].[DateTimeLastEdited], [bpc].[ReplyToCommentId]
 	FROM [dbo].[BlogPostComment] AS bpc
 	INNER JOIN [dbo].[BlogPost] AS bp
