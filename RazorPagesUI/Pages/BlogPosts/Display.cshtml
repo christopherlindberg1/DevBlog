@@ -49,23 +49,22 @@
         </article>
 
         <section class="comment-section">
-            <h3>Comment section</h3>
+            <h4>Comments</h4>
             <div class="comment-form-container">
-                @if (Model.IsAuthenticated)
-                {
-                    <span>Leave a comment</span>
-                    <form method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input asp-for="BlogPost.Id" type="hidden" class="form-control" />
-                        <div class="form-group">
-                            <textarea asp-for="Comment.CommentText" class="form-control"></textarea>
-                            <span asp-validation-for="Comment.CommentText" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Comment</button>
-                        </div>
-                    </form>
-                }
+            @if (Model.IsAuthenticated)
+            {
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="BlogPost.Id" type="hidden" class="form-control" />
+                    <div class="form-group">
+                        <textarea placeholder="Leave a comment..." class="form-control"></textarea>
+                        <span asp-validation-for="Comment.CommentText" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Comment</button>
+                    </div>
+                </form>
+            }
                 else
                 {
                     <p>
@@ -77,15 +76,14 @@
 
             </div>
             <div class="comments">
-                <h4 class="mt">Comments</h4>
-                @foreach (var comment in Model.BlogPost.Comments)
-                {
-                    <div class="comment">
-                        <span class="d-block comment-author-user-name">@comment.AuthorUserName</span>
-                        <span class="d-block comment-text">@comment.CommentText</span>
-                        <span class="d-block comment-datetime">Posted @comment.DateTimeCreatedAgo ago</span>
-                    </div>
-                }
+            @foreach (var comment in Model.BlogPost.Comments)
+            {
+                <div class="comment">
+                    <span class="d-block comment-author-user-name">@comment.AuthorUserName</span>
+                    <span class="d-block comment-text">@comment.CommentText</span>
+                    <span class="d-block comment-datetime">Posted @comment.DateTimeCreatedAgo ago</span>
+                </div>
+            }
             </div>
         </section>
     </section>
