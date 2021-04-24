@@ -72,9 +72,11 @@ a {
 }
 
 .post-list-item {
-    border-bottom: 1px solid #aaa;
+    /*border-bottom: 1px solid #aaa;*/
+    box-shadow: 0px 0px 2px #ccc;
     margin: 0.5rem 0;
     padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
 }
 
 .post-list-item:hover {

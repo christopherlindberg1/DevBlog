@@ -12,6 +12,9 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT * FROM [dbo].[BlogPost]
-	ORDER BY [dbo].BlogPost.DateTimeCreated DESC;
+	SELECT [bp].[Id], [bp].[Title], [bp].[Content], [bp].[DateTimeCreated], [user].[DisplayUserName] AS [AuthorUserName]
+	FROM [dbo].[BlogPost] AS [bp]
+	INNER JOIN [dbo].[AspNetUsers] AS [user]
+	ON [bp].[AuthorId] = [user].[Id]
+	ORDER BY [bp].[DateTimeCreated] DESC;
 END
