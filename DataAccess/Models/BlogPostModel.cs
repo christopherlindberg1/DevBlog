@@ -26,7 +26,6 @@ namespace DataAccess.Models
         {
             get
             {
-                bool cameToTheEndOfContent = false;
                 const int nrOfWordsInTrimmedContent = 25;
 
                 string[] words = Content.Split(' ');
@@ -37,7 +36,7 @@ namespace DataAccess.Models
                 {
                     if (i == words.Length)
                     {
-                        cameToTheEndOfContent = true;
+                        //cameToTheEndOfContent = true;
                         break;
                     }
 
@@ -49,9 +48,9 @@ namespace DataAccess.Models
                     builder.Append($"{ words[i] } ");
                 }
 
-                // Add three dots if there is more content left.
-                if (cameToTheEndOfContent == false)
+                if (words.Length > nrOfWordsInTrimmedContent)
                 {
+                    builder.Remove(builder.Length - 1, 1);
                     builder.Append("...");
                 }
 
