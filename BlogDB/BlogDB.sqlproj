@@ -60,8 +60,8 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
-    <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="PublishProfiles\" />
+    <Folder Include="dbo\StoredProcedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
@@ -74,16 +74,16 @@
     <Build Include="dbo\Tables\AspNetUserTokens.sql" />
     <Build Include="dbo\Tables\BlogPost.sql" />
     <Build Include="dbo\Tables\BlogPostComment.sql" />
-    <Build Include="dbo\Stored Procedures\spBlogPost_GetAll.sql" />
-    <Build Include="dbo\Stored Procedures\spBlogPost_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\spBlogPost_GetAllOrderByDateDesc.sql" />
-    <Build Include="dbo\Stored Procedures\spBlogPost_GetTenMostRecent.sql" />
-    <Build Include="dbo\Stored Procedures\spBlogPost_GetCurrentUsersBlogPostsOrderByDateDesc.sql" />
-    <Build Include="dbo\Stored Procedures\spBlogPost_GetById.sql" />
-    <Build Include="dbo\Stored Procedures\spBlogPost_EditPost.sql" />
-    <Build Include="dbo\Stored Procedures\spBlogPost_DeletePost.sql" />
-    <Build Include="dbo\Stored Procedures\spBlogPost_AddComment.sql" />
-    <Build Include="dbo\Stored Procedures\spBlogPost_GetCommentsForBlogPost.sql" />
+    <Build Include="dbo\StoredProcedures\spBlogPost_AddComment.sql" />
+    <Build Include="dbo\StoredProcedures\spBlogPost_DeletePost.sql" />
+    <Build Include="dbo\StoredProcedures\spBlogPost_EditPost.sql" />
+    <Build Include="dbo\StoredProcedures\spBlogPost_GetAll.sql" />
+    <Build Include="dbo\StoredProcedures\spBlogPost_GetAllOrderByDateDesc.sql" />
+    <Build Include="dbo\StoredProcedures\spBlogPost_GetById.sql" />
+    <Build Include="dbo\StoredProcedures\spBlogPost_GetCommentsForBlogPost.sql" />
+    <Build Include="dbo\StoredProcedures\spBlogPost_GetCurrentUsersBlogPostsOrderByDateDesc.sql" />
+    <Build Include="dbo\StoredProcedures\spBlogPost_GetTenMostRecent.sql" />
+    <Build Include="dbo\StoredProcedures\spBlogPost_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishProfiles\BlogDB.publish.xml" />
