@@ -33,6 +33,11 @@ namespace BlogRazorPages.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
+            [MinLength(3, ErrorMessage = "User name must be at least 3 characters")]
+            [MaxLength(30, ErrorMessage = "User name cannot be more than 30 characters")]
+            [Display(Name = "User name")]
+            public string DisplayUserName { get; set; }
+
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -40,13 +45,13 @@ namespace BlogRazorPages.Areas.Identity.Pages.Account.Manage
 
         private async Task LoadAsync(ApplicationUser user)
         {
-            var userName = await _userManager.GetUserNameAsync(user);
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-
-            Username = userName;
+            string displayUserName = user.DisplayUserName;
+            //var userName = await _userManager.GetUserNameAsync(user);
+            string phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
             Input = new InputModel
             {
+                DisplayUserName = displayUserName,
                 PhoneNumber = phoneNumber
             };
         }
@@ -75,6 +80,21 @@ namespace BlogRazorPages.Areas.Identity.Pages.Account.Manage
             {
                 await LoadAsync(user);
                 return Page();
+            }
+
+            if (Input.DisplayUserName != user.DisplayUserName)
+            {
+                user.DisplayUserName = Input.DisplayUserName;
+                await _userManager.UpdateAsync(user);
+
+                // Fint better way that checks for success / fail
+
+                //var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+                //if (!setPhoneResult.Succeeded)
+                //{
+                //    StatusMessage = "Unexpected error when trying to set phone number.";
+                //    return RedirectToPage();
+                //}
             }
 
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
