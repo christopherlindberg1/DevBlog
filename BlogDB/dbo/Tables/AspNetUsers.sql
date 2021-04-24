@@ -16,6 +16,7 @@
     [AccessFailedCount]    INT                NOT NULL,
     [FirstName]            NVARCHAR (50)      NULL,
     [LastName]             NVARCHAR (50)      NULL,
+    [DisplayUserName]      NVARCHAR (30)      NOT NULL,
     CONSTRAINT [PK_AspNetUsers] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
