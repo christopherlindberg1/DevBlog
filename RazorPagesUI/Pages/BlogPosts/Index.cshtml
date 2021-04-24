@@ -60,7 +60,8 @@
                         <a asp-page="./Display" asp-route-id=@blogPost.Id class="post-list-link">
                             <h5 class="post-list-item-header">@blogPost.Title</h5>
                             <p class="post-list-item-content">@blogPost.TrimmedContent</p>
-                            <span class="post-list-item-author">Christopher</span> <span class="post-list-item-create-date">| 2021-04-24</span>
+                            <span class="post-list-item-author">@blogPost.AuthorUserName</span> 
+                            <span class="post-list-item-create-date">| @blogPost.DateTimeCreated</span>
                         </a>
                     </div>
                 }
