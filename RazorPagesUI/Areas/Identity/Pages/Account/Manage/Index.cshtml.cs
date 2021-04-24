@@ -87,7 +87,7 @@ namespace BlogRazorPages.Areas.Identity.Pages.Account.Manage
                 user.DisplayUserName = Input.DisplayUserName;
                 await _userManager.UpdateAsync(user);
 
-                // Fint better way that checks for success / fail
+                // Fint better way that checks for success / fails
 
                 //var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
                 //if (!setPhoneResult.Succeeded)
